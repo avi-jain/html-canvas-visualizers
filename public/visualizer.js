@@ -52,30 +52,34 @@ function draw() {
 
 draw();
 
-// //Second 
-// var canvas2 = document.getElementById('visualizer2');
-// var canvas2Ctx = canvas2.getContext("2d");
+//Second 
+var canvas2 = document.getElementById('visualizer2');
+var canvas2Ctx = canvas2.getContext("2d");
+canvas2Ctx.clearRect(0, 0, WIDTH, HEIGHT);
 
+function drawAgain() {
+      drawVisual = requestAnimationFrame(drawAgain);
 
-// function draw() {
-//       drawVisual = requestAnimationFrame(draw);
+      analyser.getByteFrequencyData(dataArray);// fill the Uint8Array with data returned from getByteTimeDomainData()
+      canvas2Ctx.clearRect(0, 0, WIDTH, HEIGHT);
+      var barWidth = (WIDTH / bufferLength)*10;
+      var barHeight;
+      var x = 0;
+      for(var i = 0; i < bufferLength; i++) {
+        barHeight = (dataArray[i]/2)*2;
+        canvas2Ctx.beginPath();
+        canvas2Ctx.moveTo(x,HEIGHT);
+        canvas2Ctx.lineTo(x,HEIGHT-barHeight);
+        canvas2Ctx.lineWidth = 7.5;
+        canvas2Ctx.lineCap = 'round';
+        canvas2Ctx.strokeStyle = '#fff';
+        canvas2Ctx.stroke();
 
-//       analyser.getByteFrequencyData(dataArray);// fill the Uint8Array with data returned from getByteTimeDomainData()
-//       canvas2Ctx.clearRect(0, 0, WIDTH, HEIGHT);
-//       var barWidth = (WIDTH / bufferLength);
-//       var barHeight;
-//       var x = 0;
-//       for(var i = 0; i < bufferLength; i++) {
-//         barHeight = (dataArray[i]/2)*2;
+        x += barWidth + 7.5;
+      }
+    };
 
-//         canvas2Ctx.fillStyle = 'rgba(248,248,255,' + 1.0 + ')';
-//         canvas2Ctx.fillRect(x,HEIGHT/2-barHeight/2,barWidth,barHeight); //modified mdn example for mirrored effect
-
-//         x += 1;
-//       }
-//     };
-
-// draw();
+drawAgain();
 
 // //Third
 // var canvas3 = document.getElementById('visualizer3');

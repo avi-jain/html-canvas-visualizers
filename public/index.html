@@ -3,10 +3,13 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width">
 	<meta name="description" content="Visualizer component built with the Web Audio API">
-	<title>Visualizer</title>
+	<title>Visualizers</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	<link href="https://fonts.googleapis.com/css?family=Shadows+Into+Light" rel="stylesheet">
 	<style>
 		body {background: url("./background.jpg");background-repeat: "no-repeat";background-position: center;background-size: cover;}
-		#visualizer1{display:block; margin-left: auto;margin-right: auto;}
+		#visualizer1,#visualizer2{display:block; margin-left: auto;margin-right: auto;}
+		h2{color: white;font-family: 'Shadows Into Light', cursive;}
 	</style>
 	<!--[if le IE 9]>
       <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -16,16 +19,15 @@
  </head>
  <body>
 	 <div class="content">
-	 	<audio id="mySong" src="http://localhost:6060/song.mp3" autoplay></audio>
+	 	<audio id="mySong" src="http://localhost:6060/song.mp3"></audio>
 	 	<div class="container">
 		 	<div class="row">
-		 		<canvas id="visualizer1" height="300" width="500"></canvas>
-		 		<canvas id="visualizer2" height="300" width="500"></canvas>
+		 		<canvas id="visualizer1" height="300" width="600"></canvas>	
 		 	</div>
 
 		 	<div class="row">
-		 		<canvas id="visualizer3" height="300" width="500"></canvas>
-		 		<canvas id="visualizer4" height="300" width="500"></canvas>
+		 		<canvas id="visualizer2" height="300" width="600"></canvas>
+		 		<h2 class="text-center">Don't Let Me Down</h2>
 		 	</div>
 	 	</div>
 	 </div>
